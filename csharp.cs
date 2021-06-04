@@ -19,4 +19,24 @@ public class Solution {
         }
         return -1;
     }
+
+    // bubble sort
+    public int[] BubbleSort(int[] arr) {
+        int[] copyArr = new int[arr.Length];
+        copyArr.CopyTo(arr, 0);
+        bool swapped = false;
+
+        for (int i = 1; i < arr.Length - 1; i++) {
+            for (int j = 0; j < arr.Length - i; j++) {
+                if (copyArr[j] > copyArr[j + 1]) {
+                    int tmp = copyArr[j];
+                    copyArr[j] = copyArr[j + 1];
+                    copyArr[j + 1] = tmp;
+                    swapped = true;
+                }
+            }
+            if (!swapped) return copyArr;
+        }
+        return copyArr;
+    }
 }
