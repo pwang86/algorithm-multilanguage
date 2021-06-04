@@ -19,3 +19,18 @@ class Solution:
             else:
                 l = mid + 1
         return -1
+
+    #bubble sort
+    def bubbleSort(self, arr: List[int]) -> List[int]:
+        swapped = False
+        copyArr = arr.copy()
+        for i in range(1, len(arr) - 1):
+            for j in range(len(arr) - i):
+                if copyArr[j] > copyArr[j + 1]:
+                    tmp = copyArr[j + 1]
+                    copy[j + 1] = copyArr[j]
+                    copyArr[j] = tmp
+                    swapped = true
+            if swapped != True:
+                return copyArr
+        return copyArr
