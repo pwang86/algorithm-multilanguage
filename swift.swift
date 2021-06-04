@@ -25,4 +25,22 @@ class Solution {
         }
         return -1
     }
+
+    // bubble sort
+    func bubbleSort(_ arr: [Int]) -> [Int] {
+        var swapped = false
+        var copyArr = arr
+        for i in 1 ..< arr.count - 1 {
+            for j in 0 ..< arr.count - i {
+                if (copyArr[j] > copyArr[j + 1]) {
+                    var tmp = copyArr[j + 1]
+                    copyArr[j + 1] = copyArr[j]
+                    copyArr[j] = tmp
+                    swapped = true
+                }
+            }
+            if (!swapped) return copyArr
+        }
+        return copyArr
+    }
 }
