@@ -30,3 +30,24 @@ const binarySearch = (arr, item) => {
   }
   return -1;
 };
+
+// bubble sort
+/**
+ * 
+ * @param {number[]} arr 
+ * @returns {number[]} 
+ */
+const bubbleSort = arr => {
+  let swapped = false;
+  let a = [...arr];
+  for (let i = 1; i < a.length - 1; i++) {
+    for (let j = 0; j < a.length - i; j++) {
+      if (a[j] > a[j + 1]) {
+        [a[j], a[j + 1]] = [a[j + 1], a[j]];
+        swapped = true;
+      } 
+    }
+    if (!swapped) return a;
+  }
+  return a;
+};
