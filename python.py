@@ -1,3 +1,5 @@
+from typing import List
+
 class Solution:
     
     #linear search
@@ -28,9 +30,9 @@ class Solution:
             for j in range(len(arr) - i):
                 if copyArr[j] > copyArr[j + 1]:
                     tmp = copyArr[j + 1]
-                    copy[j + 1] = copyArr[j]
+                    copyArr[j + 1] = copyArr[j]
                     copyArr[j] = tmp
-                    swapped = true
+                    swapped = True
             if swapped != True:
                 return copyArr
         return copyArr
