@@ -51,3 +51,28 @@ const bubbleSort = arr => {
   }
   return a;
 };
+
+// quick sort
+/**
+ * 
+ * @param {number[]} arr 
+ * @returns {number[]} 
+ */
+const quickSort = arr => {
+  if (arr.length < 2) return arr;
+  const copyArr = [...a];
+  const pivotIndex = a.length >> 1;
+  const pivot = a[pivotIndex];
+  const [lo, hi] = a.reduce(
+    (acc, val, i) => {
+      if (val < pivot || (val == pivot && i != pivotIndex)) {
+        acc[0].push(val);
+      } else if (val > pivot) {
+        acc[1].push(val);
+      }
+      return acc;
+    },
+    [[],[]]
+  );
+  return [...quickSort(lo), pivot, ...quickSort(hi)];
+};
