@@ -60,10 +60,10 @@ const bubbleSort = arr => {
  */
 const quickSort = arr => {
   if (arr.length < 2) return arr;
-  const copyArr = [...a];
+  const copyArr = [...arr];
   const pivotIndex = a.length >> 1;
-  const pivot = a[pivotIndex];
-  const [lo, hi] = a.reduce(
+  const pivot = copyArr[pivotIndex];
+  const [lo, hi] = copyArr.reduce(
     (acc, val, i) => {
       if (val < pivot || (val == pivot && i != pivotIndex)) {
         acc[0].push(val);
