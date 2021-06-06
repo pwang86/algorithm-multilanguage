@@ -44,21 +44,18 @@ public class Solution {
     public int[] QuickSort(int[] arr) {
         if (arr.Length < 2) return arr;
 
-        int copyArr = new int[arr.Length];
-        copyArr.CopyTo(arr, 0);
-
-        int pivotIndex = arr.Length >> 1;
-        int pivot = copyArr[pivotIndex];
+        int pivotIndex = arr.Length >> 1; // Math.Floor(arr.Length / 2)
+        int pivot = arr[pivotIndex];
 
         ArrayList lo = new ArrayList();
         ArrayList hi = new ArrayList();
         ArrayList res = new ArrayList();
 
         for (int i = 0; i < arr.Length; i++) {
-            if (copyArr[i] < pivot || (copyArr[i] == pivot && i != pivotIndex)) {
-                lo.Add(copyArr[i]);
-            } else if (copyArr[i] > pivot) {
-                hi.Add(copyArr[i]);
+            if (arr[i] < pivot || (arr[i] == pivot && i != pivotIndex)) {
+                lo.Add(arr[i]);
+            } else if (arr[i] > pivot) {
+                hi.Add(arr[i]);
             }
         }
         res.Add(QuickSort(lo.ToArray()));
