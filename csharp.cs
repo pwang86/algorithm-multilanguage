@@ -39,4 +39,32 @@ public class Solution {
         }
         return copyArr;
     }
+
+    // quick sort
+    public int[] QuickSort(int[] arr) {
+        if (arr.Length < 2) return arr;
+
+        int copyArr = new int[arr.Length];
+        copyArr.CopyTo(arr, 0);
+
+        int pivotIndex = arr.Length >> 1;
+        int pivot = copyArr[pivotIndex];
+
+        ArrayList lo = new ArrayList();
+        ArrayList hi = new ArrayList();
+        ArrayList res = new ArrayList();
+
+        for (int i = 0; i < arr.Length; i++) {
+            if (copyArr[i] < pivot || (copyArr[i] == pivot && i != pivotIndex)) {
+                lo.Add(copyArr[i]);
+            } else if (copyArr[i] > pivot) {
+                hi.Add(copyArr[i]);
+            }
+        }
+        res.Add(QuickSort(lo.ToArray()));
+        res.Add(pivot);
+        res.Add(QuickSort(hi.ToArray()));
+
+        return res.ToArray();
+    }
 }
