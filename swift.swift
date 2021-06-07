@@ -43,4 +43,32 @@ class Solution {
         }
         return copyArr
     }
+
+    // quick sort 
+    func quickSort(_ arr: [Int]) -> [Int] {
+        if (arr.count < 2)
+            return arr
+        
+        pivotIndex = arr.count / 2
+        pivot = arr[pivotIndex]
+
+        // create an empty array
+        lo = [Int]()
+        hi = [Int]()
+        res = [Int]()
+
+        for i in 0 ..< arr.count {
+            if (arr[i] < pivot || (arr[i] == pivot && i != pivotIndex)) {
+                lo.append(arr[i])
+            } else if (arr[i] > pivot) {
+                hi.append(arr[i])
+            }
+        }
+
+        res.append(quickSort(lo))
+        res.append(pivot)
+        res.append(quickSort(hi))
+
+        return res
+    }
 }
