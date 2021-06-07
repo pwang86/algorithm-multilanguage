@@ -46,18 +46,19 @@ class Solution {
 
     // quick sort 
     func quickSort(_ arr: [Int]) -> [Int] {
+        // guard arr.count > 1 else { return arr}
         if (arr.count < 2)
             return arr
         
-        pivotIndex = arr.count / 2
-        pivot = arr[pivotIndex]
+        let pivotIndex = arr.count / 2
+        let pivot = arr[pivotIndex]
 
         // create an empty array
-        lo = [Int]()
-        hi = [Int]()
-        res = [Int]()
+        var lo = [Int]()
+        var hi = [Int]()
+        var res = [Int]()
 
-        for i in 0 ..< arr.count {
+        for i in 0..<arr.count {
             if (arr[i] < pivot || (arr[i] == pivot && i != pivotIndex)) {
                 lo.append(arr[i])
             } else if (arr[i] > pivot) {
