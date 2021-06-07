@@ -78,3 +78,22 @@ const quickSort = arr => {
   );
   return [...quickSort(lo), pivot, ...quickSort(hi)];
 };
+
+// merge sort
+/**
+ * 
+ * @param {number[]} arr 
+ * @returns {number[]} 
+ */
+const mergeSort = arr => {
+  if (arr.length < 2) return arr;
+
+  const mid = arr.length >> 1;
+  const l = mergeSort(arr.slice(0, mid));
+  const r = mergeSort(arr.slice(mid, arr.length));
+  return Array.from({length: l.length + r.length}, () => {
+    if (l.length == 0) return r.shift();
+    else if (r.length == 0) return l.shift();
+    else return l[0] > r[0] ? r.shift() : l.shift();
+  });
+};
