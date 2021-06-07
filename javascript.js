@@ -1,3 +1,5 @@
+// All algorithms are from https://www.30secondsofcode.org/ 
+
 // Linear Search
 /**
  * 
