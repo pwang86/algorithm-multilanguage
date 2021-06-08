@@ -61,3 +61,45 @@ class Solution:
         res.append(self.quickSort(hi))
 
         return res
+
+    # merge sort
+    def mergeSort(self, arr: List[int]) -> List[int]:
+        if len(arr) < 2:
+            return arr
+        
+        mid = len(arr) // 2
+
+        left = []
+        right = []
+        res = []
+
+        for i in range(mid):
+            left.append(arr[i])
+
+        for i in range(mid, len(arr)):
+            right.append(arr[i])
+        
+        left = self.mergeSort(left)
+        right = self.mergeSort(right)
+
+        indexLeft = indexRight = indexRes = 0
+        while indexLeft < len(left) or indexRight < len(right):
+            if indexLeft < len(left) and indexRight < len(right):
+                if left[indexLeft] <= right[indexRight]:
+                    res[indexRes] = left[indexLeft]
+                    indexRes += 1
+                    indexLeft += 1
+                else:
+                    res[indexRes] = right[indexRes]
+                    indexRes += 1
+                    indexRight += 1
+            elif indexLeft < len(left):
+                res[indexRes] = left[indexLeft]
+                indexRes += 1
+                indexLeft += 1
+            elif indexRight < len(right):
+                res[indexRes] = right[indexRes]
+                indexRes += 1
+                indexRight += 1
+        
+        return res
