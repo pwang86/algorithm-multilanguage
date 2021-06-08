@@ -64,4 +64,49 @@ public class Solution {
 
         return res.ToArray();
     }
+
+    // merge sort
+    public int[] MergeSort(int[] arr) {
+        if (arr.Length < 2) return arr;
+
+        int mid = arr.Length >> 1;
+        int[] left = new int[mid];
+        int[] right = new int[arr.Length - mid];
+        int[] res = new int[arr.Length];
+
+        for (int i = 0; i < mid; i++) {
+            left[i] = arr[i];
+        }
+        for (int i = 0; i + mid < arr.Length; i++) {
+            right[i] = arr[i + mid];
+        }
+
+        left = MergeSort(left);
+        right = MergeSort(right);
+
+        int indexRes = 0, indexLeft = 0, indexRight = 0;
+        while (indexLeft < left.Length || indexRight < right.Length) {
+            if (indexLeft < left.Length && indexRight < right.Length) {
+                if (left[indexLeft] <= right[indexRight]) {
+                    res[indexRes] = left[indexLeft];
+                    indexLeft++;
+                    indexRes++; 
+                } else {
+                    res[indexRes] = right[indexRight];
+                    indexRight++;
+                    indexRes++;
+                }
+            } else if (indexLeft < left.Length) {
+                res[indexRes] = left[indexLeft];
+                indexLeft++;
+                indexRes++; 
+            } else if (indexRight < right.Length) {
+                res[indexRes] = right[indexRight];
+                indexRight++;
+                indexRes++; 
+            }
+        }
+
+        return res;
+    }
 }
