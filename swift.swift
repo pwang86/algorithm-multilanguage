@@ -72,4 +72,51 @@ class Solution {
 
         return res
     }
+
+    // merge sort
+    func mergeSort(_ arr: [Int]) -> [Int] {
+        if (arr.count < 2)
+            return arr
+        
+        let mid = arr.count / 2
+
+        var left = [Int]()
+        var right = [Int]()
+        var res = [Int]()
+
+        for i in 0..<mid {
+            left.append(arr[i])
+        }
+        for i in mid..<arr.count {
+            right.append(arr[i])
+        }
+
+        left = mergeSort(left)
+        right = mergeSort(right)
+
+        var indexLeft = 0, indexRight = 0, indexRes = 0
+        while indexLeft < left.count || indexRight < right.count {
+            if indexLeft < left.count && indexRight < right.count {
+                if left[indexLeft] <= right[indexRight] {
+                    res[indexRes] = left[indexLeft]
+                    indexRes += 1
+                    indexLeft += 1
+                } else {
+                    res[indexRes] = right[indexRight]
+                    indexRes += 1
+                    indexRight += 1
+                }
+            } else if indexLeft < left.count {
+                res[indexRes] = left[indexLeft]
+                indexRes += 1
+                indexLeft += 1
+            } else if indexRight < right.count {
+                res[indexRes] = right[indexRight]
+                indexRes += 1
+                indexRight += 1
+            }
+        }
+
+        return res
+    }
 }
