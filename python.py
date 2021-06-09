@@ -103,3 +103,18 @@ class Solution:
                 indexRight += 1
         
         return res
+
+    # heap sort
+    def heapify()
+
+    def heapSort(self, arr: List[int]) -> List[int]:
+        res = arr.copy()
+        length = len(res)
+
+        for i in range(length // 2 - 1, -1, -1):
+            heapify(res, i)
+        for i in range(len - 1, 0, -1):
+            res[0], res[i] = res[i], res[0]
+            heapify(res, 0)
+    
+    
