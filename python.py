@@ -105,16 +105,27 @@ class Solution:
         return res
 
     # heap sort
-    def heapify()
+    def heapify(self, arr: List[int], i: int) -> None:
+        left = 2 * i + 1
+        right = 2 * i + 2
+        max = i
+
+        if left < len(arr) and arr[left] > arr[max]:
+            max = left
+        if right < len(arr) and arr[right] > arr[max]:
+            max = right
+        if max != i:
+            arr[max], arr[i] = arr[i], arr[max]
+            self.heapify(arr, max)
+        
 
     def heapSort(self, arr: List[int]) -> List[int]:
         res = arr.copy()
         length = len(res)
 
         for i in range(length // 2 - 1, -1, -1):
-            heapify(res, i)
+            self.heapify(res, i)
         for i in range(len - 1, 0, -1):
             res[0], res[i] = res[i], res[0]
-            heapify(res, 0)
-    
-    
+            self.heapify(res, 0)
+        return res
