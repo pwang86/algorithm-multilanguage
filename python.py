@@ -105,7 +105,7 @@ class Solution:
         return res
 
     # heap sort
-    def heapify(self, arr: List[int], i: int) -> None:
+    def heapify(self, arr: List[int], n: int, i: int) -> None:
         left = 2 * i + 1
         right = 2 * i + 2
         max = i
@@ -116,7 +116,7 @@ class Solution:
             max = right
         if max != i:
             arr[max], arr[i] = arr[i], arr[max]
-            self.heapify(arr, max)
+            self.heapify(arr, n, max)
         
 
     def heapSort(self, arr: List[int]) -> List[int]:
@@ -124,8 +124,8 @@ class Solution:
         length = len(res)
 
         for i in range(length // 2 - 1, -1, -1):
-            self.heapify(res, i)
+            self.heapify(res, length, i)
         for i in range(len - 1, 0, -1):
             res[0], res[i] = res[i], res[0]
-            self.heapify(res, 0)
+            self.heapify(res, i, 0)
         return res
