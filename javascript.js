@@ -108,23 +108,23 @@ const heapSort = arr => {
   const copyArr = [...arr];
   let len = copyArr.length;
 
-  const heapify = (a, i) => {
+  const heapify = (a, n, i) => {
     const left = 2 * i + 1;
     const right = 2 * i + 2;
 
     let max = i;
-    if (left < len && a[left] > a[max]) max = left;
-    if (right < len && a[right] > a[max]) max = right;
+    if (left < n && a[left] > a[max]) max = left;
+    if (right < n && a[right] > a[max]) max = right;
     if (max != i) {
       [a[max], a[i]] = [a[i], a[max]];
-      heapify(a, max);
+      heapify(a, n, max);
     }
   };
 
-  for (let i = len >> 1 - 1; i >= 0; i--) heapify(copyArr, i);
+  for (let i = len >> 1 - 1; i >= 0; i--) heapify(copyArr, len, i);
   for (let i = len - 1; i > 0; i--) {
     [a[0], a[i]] = [a[i], a[0]];
-    heapify(copyArr, 0);
+    heapify(copyArr, i, 0);
   }
   return copyArr;
 };
