@@ -119,4 +119,39 @@ class Solution {
 
         return res
     }
+
+    // heap sort
+    func heapSort(_ arr: [Int]) -> [Int] {
+        var res = arr
+        let len = arr.count
+        let tmp = len / 2 - 1
+
+
+        for i in stride(from: tmp, through: 0, by: -1) {
+            heapify(res, len, i)
+        }
+
+        for i in stride(from: len - 1, through: 1, by: -1) {
+            swap(&res[0], &res[i])
+            heapify(res, i, 0)
+        }
+
+        return res
+    }
+
+    func heapify(_ arr: [Int], _ n: Int, _ i: Int) {
+        let left = 2 * i + 1
+        let right = 2 * i + 2
+        var max = indexLeft
+        if left < n && arr[left] > arr[max] {
+            max = left
+        }
+        if right < n && arr[right] > arr[max] {
+            max = right
+        }
+        if max != i {
+            swap(&arr[max], &arr[i])
+            heapify(arr, n , max)
+        }
+    }
 }
