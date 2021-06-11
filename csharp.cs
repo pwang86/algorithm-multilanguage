@@ -119,27 +119,26 @@ public class Solution {
         int len = copyArr.Length;
 
         for (int i = len >> 1 - 1; i >= 0; i--) {
-            Heapify(copyArr, i);
+            Heapify(copyArr, len, i);
         }
         for (int i = len - 1; i > 0; i--) {
             copyArr[0] = copyArr[0] ^ copyArr[i] ^ (copyArr[i] = copyArr[0]);  // swap
-            Heapify(copyArr, 0);
+            Heapify(copyArr, i, 0);
         }
 
         return copyArr;
     }
 
-    // heap sort
-    public void Heapify(int[] arr, int i) {
+    public void Heapify(int[] arr, int n, int i) {
         int left = 2 * i + 1;
         int right = 2 * i + 2;
         int max = i;
 
-        if (left < arr.Length && arr[left] > arr[max]) max = left;
-        if (right < arr.Length && arr[right > arr[max]]) max = right;
+        if (left < n && arr[left] > arr[max]) max = left;
+        if (right < n && arr[right > arr[max]]) max = right;
         if (max != i) {
             arr[max] = arr[max] ^ arr[i] ^(arr[i] = arr[max]);
-            Heapify(arr, max);
+            Heapify(arr, n, max);
         }
         
     }
