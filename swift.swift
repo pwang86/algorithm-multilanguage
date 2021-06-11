@@ -154,4 +154,29 @@ class Solution {
             heapify(arr, n , max)
         }
     }
+
+    // selection sort
+    func selectionSort(_ arr: [Int]) -> [Int] {
+        if arr.count < 2 {
+            return arr
+        }
+
+        var res = arr
+        for i in 0..<res.count - 1 {
+            var minIndex = i
+
+            for j in i + 1..<res.count {
+                if res[j] < res[min] {
+                    minIndex = j
+                }
+            }
+
+            if i != min {
+                res.swap(i, minIndex)
+            }
+         }
+
+         return res
+    }
+
 }
