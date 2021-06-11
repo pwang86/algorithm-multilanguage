@@ -110,9 +110,9 @@ class Solution:
         right = 2 * i + 2
         max = i
 
-        if left < len(arr) and arr[left] > arr[max]:
+        if left < n and arr[left] > arr[max]:
             max = left
-        if right < len(arr) and arr[right] > arr[max]:
+        if right < n and arr[right] > arr[max]:
             max = right
         if max != i:
             arr[max], arr[i] = arr[i], arr[max]
