@@ -137,9 +137,31 @@ public class Solution {
         if (left < n && arr[left] > arr[max]) max = left;
         if (right < n && arr[right > arr[max]]) max = right;
         if (max != i) {
-            arr[max] = arr[max] ^ arr[i] ^(arr[i] = arr[max]);
+            arr[max] = arr[max] ^ arr[i] ^ (arr[i] = arr[max]);
             Heapify(arr, n, max);
         }
         
+    }
+
+    // selection sort
+    public int[] SelectionSort(int[] arr) {
+        if (arr.Length < 2) {
+            return arr
+        }
+
+        int[] res = int[arr.Length];
+        res.CopyTo(arr, 0);
+
+        for (int i = 0 ; i < res.Length - 1; i++) {
+            int min = i;
+            for (int j = 0; j < res.Length; j++) {
+                if (res[j] < res[min]) {
+                    min = j;
+                }
+            }
+            if (min != i) {
+                res[min] = res[min] ^ res[i] ^ (res[i] = res[min]);
+            }
+        } 
     }
 }
