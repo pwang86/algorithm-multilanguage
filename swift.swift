@@ -1,3 +1,5 @@
+// some algorithms are from https://github.com/raywenderlich/swift-algorithm-club
+
 class Solution {
 
     // linear search
