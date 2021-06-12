@@ -129,3 +129,18 @@ class Solution:
             res[0], res[i] = res[i], res[0]
             self.heapify(res, i, 0)
         return res
+    
+    # selection sort
+    def selectionSort(self, arr: List[int]) -> List[int]:
+        if len(arr) < 2:
+            return arr
+        
+        res = arr.copy()
+        for i in range(len(arr) - 1):
+            minInex = i
+            for j in range(i + 1, len(arr)):
+                if res[j] < res[minInex]:
+                    minInex = j
+            if minInex != i:
+                res[minInex], res[i] = res[i], res[minInex]
+        return res
