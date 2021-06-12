@@ -128,3 +128,28 @@ const heapSort = arr => {
   }
   return copyArr;
 };
+
+// selection sort
+/**
+ * 
+ * @param {number[]} arr 
+ * @returns {number[]} 
+ */
+const selectionSort = arr => {
+  if (arr.length < 2) {
+    return arr;
+  }
+  let res = [...arr];
+  for (let i = 0; i < res.length - 1; i++) {
+    let min = i;
+    for (let j = i + 1; j < res.length; j++) {
+      if (res[j] < res[min]) {
+        min = j;
+      }
+    }
+    if (min != i) {
+      [res[min], res[i]] = [res[i], res[min]];
+    }
+  }
+  return res;
+};
