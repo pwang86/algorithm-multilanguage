@@ -174,7 +174,7 @@ class Solution {
             }
 
             if i != min {
-                res.swap(i, minIndex)
+                res.swapAt(i, minIndex)
             }
          }
 
