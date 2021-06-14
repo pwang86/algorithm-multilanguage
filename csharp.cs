@@ -149,7 +149,7 @@ public class Solution {
             return arr
         }
 
-        int[] res = int[arr.Length];
+        int[] res = new int[arr.Length];
         res.CopyTo(arr, 0);
 
         for (int i = 0 ; i < res.Length - 1; i++) {
@@ -163,5 +163,21 @@ public class Solution {
                 res[min] = res[min] ^ res[i] ^ (res[i] = res[min]);
             }
         } 
+    }
+
+    // insertion sort
+    public int[] InsertionSort(int[] arr) {
+        if (arr.Length < 2) return arr;
+        int[] res = new int[arr.Length];
+
+        for (int i = 1; i < res.Length; i++) {
+            int currentIndex = i;
+            while (currentIndex > 0 && res[currentIndex] < res[currentIndex - 1]) {
+                res[currentIndex] = res[currentIndex] ^ res[currentIndex - 1] ^ (res[currentIndex - 1] = res[currentIndex]);
+                currentIndex--;
+            }
+        }
+
+        return res;
     }
 }
