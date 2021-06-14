@@ -153,3 +153,24 @@ const selectionSort = arr => {
   }
   return res;
 };
+
+// insertion sort
+/**
+ * 
+ * @param {number[]} arr 
+ * @returns {number[]} 
+ */
+const insertionSort = arr => {
+  if (arr.length < 2) {
+    return arr;
+  }
+  let res = [...arr];
+  for (let i = 1; i < res.length; i++) {
+    let currentIndex = i;
+    while (currentIndex > 0 && res[currentIndex] < res[currentIndex - 1]) {
+      [res[currentIndex], res[currentIndex - 1]] = [res[currentIndex - 1], res[currentIndex]];
+      currentIndex--;
+    }
+  }
+  return res;
+};
