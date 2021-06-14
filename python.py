@@ -144,3 +144,16 @@ class Solution:
             if minInex != i:
                 res[minInex], res[i] = res[i], res[minInex]
         return res
+
+    # insertion sort
+    def insertionSort(self, arr: List[int]) -> List[int]:
+        if len(arr) < 2:
+            return arr
+        res = arr.copy()
+
+        for i in range(1, len(res)):
+            currentIndex = i
+            while currentIndex > 0 and res[currentIndex] < res[currentIndex - 1]:
+                res[currentIndex], res[currentIndex - 1] = res[currentIndex - 1], res[currentIndex]
+                currentIndex -= 1
+        return res
