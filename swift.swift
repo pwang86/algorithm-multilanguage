@@ -181,4 +181,22 @@ class Solution {
          return res
     }
 
+    // insertion sort
+
+    func insertionSort(_ arr: [Int]) -> [Int] {
+        if arr.count < 2 {
+            return arr
+        }
+        var res = arr;
+        for i in 1..<res.count {
+            var currentIndex = i;
+            while currentIndex > 0 && res[currentIndex] < res[currentIndex - 1] {
+                res.swapAt(currentIndex - 1, currentIndex)
+                currentIndex -= 1
+            }
+        }
+
+        return res
+    }
+
 }
