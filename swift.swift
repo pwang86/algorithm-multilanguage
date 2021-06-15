@@ -182,20 +182,37 @@ class Solution {
     }
 
     // insertion sort
-
     func insertionSort(_ arr: [Int]) -> [Int] {
         if arr.count < 2 {
             return arr
         }
         var res = arr;
         for i in 1..<res.count {
-            var currentIndex = i;
+            var currentIndex = i
             while currentIndex > 0 && res[currentIndex] < res[currentIndex - 1] {
                 res.swapAt(currentIndex - 1, currentIndex)
                 currentIndex -= 1
             }
         }
 
+        return res
+    }
+
+    // optimised insertion sort
+    func insertionSort2(_ arr:[Int]) -> [Int] {
+        if arr.count < 2 {
+            return arr
+        }
+        var res = arr;
+        for i in 1..<res.count {
+            var currentIndex = i
+            let tmp = res[currentIndex]
+            while currentIndex > 0 && tmp < res[currentIndex - 1] {
+                res[currentIndex] = res[currentIndex - 1]
+                currentIndex -= 1
+            }
+            res[currentIndex] = tmp
+        }
         return res
     }
 
