@@ -157,3 +157,19 @@ class Solution:
                 res[currentIndex], res[currentIndex - 1] = res[currentIndex - 1], res[currentIndex]
                 currentIndex -= 1
         return res
+
+    # optimised insertion sort
+    def insertionSort2(self, arr: List[int]) -> List[int]:
+        if len(arr) < 2:
+            return arr
+        res = arr.copy()
+
+        for i in range(1, len(res)):
+            currentIndex = i
+            tmp = res[currentIndex]
+            while currentIndex > 0 and tmp < res[currentIndex - 1]:
+                res[currentIndex] = res[currentIndex - 1]
+                currentIndex -= 1
+            res[currentIndex] = tmp
+
+        return res 
