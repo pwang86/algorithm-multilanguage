@@ -180,4 +180,22 @@ public class Solution {
 
         return res;
     }
+
+    // optimised insertion sort
+    public int[] InsertionSort2(int[] arr) {
+        if (arr.Length < 2) return arr;
+        int[] res = new int[arr.Length];
+
+        for (int i = 1; i < res.Length; i++) {
+            int currentIndex = i;
+            int tmp = res[currentIndex];
+            while (currentIndex > 0 && tmp < res[currentIndex - 1]) {
+                res[currentIndex] = res[currentIndex - 1];
+                currentIndex--;
+            }
+            res[currentIndex] = tmp;
+        }
+
+        return res;
+    }
 }
