@@ -174,3 +174,26 @@ const insertionSort = arr => {
   }
   return res;
 };
+
+// optimised insertion sort
+/**
+ * 
+ * @param {number[]} arr 
+ * @returns {number[]} 
+ */
+ const insertionSort2 = arr => {
+  if (arr.length < 2) {
+    return arr;
+  }
+  let res = [...arr];
+  for (let i = 1; i < res.length; i++) {
+    let currentIndex = i;
+    const tmp = res[currentIndex];
+    while (currentIndex > 0 && tmp < res[currentIndex - 1]) {
+      res[currentIndex] = [res[currentIndex - 1];
+      currentIndex--;
+    }
+    res[currentIndex] = tmp;
+  }
+  return res;
+};
