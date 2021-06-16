@@ -203,7 +203,7 @@ class Solution {
         if arr.count < 2 {
             return arr
         }
-        var res = arr;
+        var res = arr
         for i in 1..<res.count {
             var currentIndex = i
             let tmp = res[currentIndex]
@@ -214,6 +214,19 @@ class Solution {
             res[currentIndex] = tmp
         }
         return res
+    }
+
+    // shuffle
+    func shuffle(_ arr:[Int]) -> [Int] {
+        var res = arr
+        for i in stride(from: arr.count - 1, through: 1, by: -1) {
+            let j = Int.random(in: 0...i)
+            if i != j {
+                res.swapAt(i, j)
+            }
+        }
+        return res
+
     }
 
 }
