@@ -198,4 +198,19 @@ public class Solution {
 
         return res;
     }
+
+    // shuffle
+    public int[] Shuffle(int[] arr) {
+        int[] res = new int[arr.Length];
+        res.CopyTo(arr, 0);
+
+        Random rnd = new Random();
+
+        for (int i = res.Length - 1; i >= 1; i--) {
+            int j = rnd.next(0, i);
+            res[i] = res[i] ^ res[j] ^ (res[j] = res[i]);
+        }
+
+        return res;
+    }
 }
