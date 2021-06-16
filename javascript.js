@@ -197,3 +197,18 @@ const insertionSort = arr => {
   }
   return res;
 };
+
+// shuffle (Fisher-Yates algorithm)
+/**
+ * 
+ * @param {number[]} arr 
+ * @returns {number[]} 
+ */
+const shuffle = arr => {
+  let res = [...arr];
+  for (let i = res.length - 1; i >= 1; i--) {
+    const j = Math.floor(Math.random() * i);
+    [res[i], res[j]] = [res[j], res[i]];
+  }
+  return res;
+}; 
