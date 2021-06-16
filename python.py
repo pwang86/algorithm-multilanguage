@@ -1,4 +1,5 @@
 from typing import List
+import random
 
 class Solution:
     
@@ -173,3 +174,14 @@ class Solution:
             res[currentIndex] = tmp
 
         return res 
+
+    # shuffle
+    def shuffle(self, arr: List[int]) -> List[int]:
+        res = arr.copy()
+
+        for i in range (len(res) - 1, 0, -1):
+            j = random.randint(0, i)
+            if i != j:
+                res[i], res[j] = res[j], res[i]
+        
+        return res
